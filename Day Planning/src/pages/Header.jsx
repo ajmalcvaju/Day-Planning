@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 p-5 shadow-lg rounded-b-lg">
+    <header className="bg-gradient-to-r bg-blue-400 p-5 shadow-lg rounded-b-lg">
       <nav className="flex justify-center items-center space-x-12 text-white">
         <Link
           to="/"

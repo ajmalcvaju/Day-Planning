@@ -12,9 +12,15 @@ const formatDateKey = (date = new Date()) => {
 };
 
 const TimeTable = () => {
-  const [attendance, setAttendance] = useState(
-    localStorage.getItem("attendance")
-  );
+    const [attendance, setAttendance] = useState(() => {
+        try {
+          const stored = localStorage.getItem("attendance");
+          return stored ? JSON.parse(stored) : {}; // Default to empty object if not found
+        } catch (error) {
+          console.error("Failed to parse attendance from localStorage", error);
+          return {}; // Fallback to empty object on error
+        }
+      });
   const [selectedDate, setSelectedDate] = useState(formatDateKey());
 
   useEffect(() => {
